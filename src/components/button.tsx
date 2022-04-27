@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import './style.css'
 
 interface IButton {
   onClick: () => void

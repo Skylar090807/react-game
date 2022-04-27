@@ -1,0 +1,28 @@
+/* Button 컴포넌트 */
+.button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  white-space: nowrap;
+  background: #b8b6b4;
+  color: white;
+  font-family: 'Jua', sans-serif;
+}
+
+.button_default {
+  background: #b8b6b4;
+  color: #000;
+}
+
+.button_positive {
+  background: RGBA(149, 68, 211, 0.4);
+  color: #fff;
+}
+
+.button_negative {
+  background: #333333;
+  color: #fff;
+}

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
-import { MultiplicationTableContainer } from './index.style'
+import { MultiplicationTableContainer, Numbers, Result } from './index.style'
+import { Title } from '../../styles/common.style'
 
 interface IMultiplicationTable {}
 
@@ -36,9 +37,10 @@ const MultiplicationTable: React.FC<IMultiplicationTable> = (props: IMultiplicat
 
   return (
     <MultiplicationTableContainer>
-      <div>
+      <Title>구구단 게임</Title>
+      <Numbers>
         {first} X {second} = ?
-      </div>
+      </Numbers>
       <form onSubmit={onSubmitFormHandler}>
         <input //
           type="number"
@@ -47,7 +49,7 @@ const MultiplicationTable: React.FC<IMultiplicationTable> = (props: IMultiplicat
           onChange={onChangeHandler}
         />
       </form>
-      <div>{result}</div>
+      <Result>{result}</Result>
     </MultiplicationTableContainer>
   )
 }

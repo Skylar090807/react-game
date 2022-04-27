@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Button from '../../components/button'
+import { Title } from '../../styles/common.style'
 import Ball from './ball'
 import { LottoContainer } from './index.style'
 
@@ -53,7 +54,8 @@ const Lotto: React.FC<ILotto> = (props: ILotto) => {
 
   return (
     <LottoContainer>
-      <div>당첨 결과!</div>
+      <Title>로또번호 추천</Title>
+      <div>오늘의 로또번호는!</div>
       <div id="result">
         {winBalls.map((it) => (
           <Ball key={it} number={it} />
