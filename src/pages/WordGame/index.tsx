@@ -17,14 +17,14 @@ const WordGame: React.FC<IWordGame> = (props: IWordGame) => {
       e.preventDefault()
       const input = inputRef.current
       if (word[word.length - 1] === value[0]) {
-        setResult('딩동댕')
+        setResult('통과!')
         setWord(value)
         setValue('')
         if (input) {
           input.focus()
         }
       } else {
-        setResult('땡')
+        setResult('주어진 단어의 끝 글자와 시작할 단어의 첫 글자가 같아야 합니다.')
         setValue('')
         if (input) {
           input.focus()
