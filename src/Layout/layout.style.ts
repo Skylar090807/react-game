@@ -4,11 +4,10 @@ export const HeaderContainer = styled.div`
   width: 100%;
   height: 73px;
   background: #fff;
-  // border-bottom: 1px solid #d0cfce;
   display: flex;
   justify-content: start;
 
-  border-bottom: 1px solid rgba(44, 44, 44, 0.233);
+  // border-bottom: 1px solid rgba(44, 44, 44, 0.233);
   box-shadow: 0px 2px 3px rgba(44, 44, 44, 0.137);
   .logo {
     width: 90px;
@@ -34,7 +33,7 @@ export const NavigationContainer = styled.div`
     &.selected {
       font-size: 20px;
       font-weight: 600;
-      color: rgb(10, 118, 135);
+      text-shadow: 0px 9px 4px rgba(150, 150, 150, 0.54);
     }
   }
 `

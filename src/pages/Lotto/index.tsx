@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Button from '../../components/button'
 import { Title } from '../../styles/common.style'
 import Ball from './ball'
-import { LottoContainer } from './index.style'
+import { BallNumbers, Bonus, FlexBox, LottoContainer, TodaysNumbers } from './index.style'
 
 interface ILotto {}
 
@@ -55,15 +55,15 @@ const Lotto: React.FC<ILotto> = (props: ILotto) => {
   return (
     <LottoContainer>
       <Title>로또번호 추천</Title>
-      <div>오늘의 로또번호는!</div>
-      <div id="result">
-        {winBalls.map((it) => (
-          <Ball key={it} number={it} />
+      <TodaysNumbers>오늘의 로또번호는!</TodaysNumbers>
+      <BallNumbers>
+        {winBalls.map((it, idx) => (
+          <Ball key={idx} number={it} />
         ))}
-      </div>
-      <div>Bonus!</div>
-      {bonus && <Ball number={bonus} />}
-      {redo && <Button onClick={onClickRedo} text={'한 번 더 해볼까요?'} type={'positive'} />}
+      </BallNumbers>
+      <Bonus>Bonus!</Bonus>
+      <FlexBox>{bonus && <Ball number={bonus} />}</FlexBox>
+      {redo && <Button onClick={onClickRedo} text={'다시 해볼까요?'} type={'positive'} />}
     </LottoContainer>
   )
 }

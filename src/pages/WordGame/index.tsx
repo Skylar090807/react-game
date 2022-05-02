@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useState } from 'react'
 import Button from '../../components/button'
 import { Title } from '../../styles/common.style'
 
-import { WordGameContainer } from './index.style'
+import { Word, WordGameContainer, WordGameResult, WordGameWrap } from './index.style'
 
 interface IWordGame {}
 
@@ -41,16 +41,19 @@ const WordGame: React.FC<IWordGame> = (props: IWordGame) => {
   return (
     <WordGameContainer>
       <Title>끝말잇기</Title>
-      <div>{word}</div>
-      <form onSubmit={onSubmitFormHandler}>
-        <input //
-          type="text"
-          // ref={''}
-          onChange={onChangeHandler}
-        />
-        <Button onClick={() => {}} text={'입력'} type={'negative'} />
-      </form>
-      <div>{result}</div>
+      <WordGameWrap>
+        <Word>{word}</Word>
+        <form onSubmit={onSubmitFormHandler}>
+          <input //
+            type="text"
+            ref={inputRef}
+            onChange={onChangeHandler}
+            placeholder="다람쥐"
+          />
+          <Button onClick={() => {}} text={'입력'} type={'positive'} />
+        </form>
+        <WordGameResult>{result}</WordGameResult>
+      </WordGameWrap>
     </WordGameContainer>
   )
 }

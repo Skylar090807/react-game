@@ -6,6 +6,9 @@ export const MultiplicationTableContainer = styled.div`
     padding: 25px;
     font-size: 1em;
     margin-bottom: 2em;
+    border-radius: 10px;
+    border-style: none;
+    background: #ddeaff;
   }
 `
 
