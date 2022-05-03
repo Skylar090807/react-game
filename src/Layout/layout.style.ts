@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: start;
 
-  // border-bottom: 1px solid rgba(44, 44, 44, 0.233);
+  border-bottom: 1px solid rgba(44, 44, 44, 0.233);
   box-shadow: 0px 2px 3px rgba(44, 44, 44, 0.137);
   .logo {
     width: 90px;
@@ -41,10 +41,22 @@ export const FooterContainer = styled.div`
   background: rgba(81, 139, 255, 0.2);
   width: 100%;
   height: auto;
-  padding: 60px 0;
+  padding: 3em;
 `
 export const FooterWrap = styled.div`
-  max-width: 1280px;
-  min-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  display: column;
+  justify-content: start;
+`
+export const LogoImgWrap = styled.div`
+  margin-bottom: 1em;
+
+  .logo-img {
+    width: 5em;
+  }
+`
+export const FooterTextWrap = styled.div`
+  font-size: 1em;
+  color: #576f96;
+  font-weight: 600;
 `

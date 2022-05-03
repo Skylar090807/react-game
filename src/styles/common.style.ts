@@ -6,3 +6,8 @@ export const Title = styled.div`
   font-size: 44px;
   font-weight: 600;
 `
+export const FlexBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`

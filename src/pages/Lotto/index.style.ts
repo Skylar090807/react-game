@@ -42,4 +42,5 @@ export const LottoBalls = styled.div`
   border-radius: 50%;
   font-size: 2em;
   color: #fff;
+  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 23px 16px 15px 18px rgba(0, 0, 0, 0);
 `
