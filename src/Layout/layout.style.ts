@@ -6,9 +6,10 @@ export const HeaderContainer = styled.div`
   background: #fff;
   display: flex;
   justify-content: start;
+  padding: 0 2em;
 
   border-bottom: 1px solid rgba(44, 44, 44, 0.233);
-  box-shadow: 0px 2px 3px rgba(44, 44, 44, 0.137);
+  // box-shadow: 0px 2px 3px rgba(44, 44, 44, 0.137);
   .logo {
     width: 90px;
   }
@@ -53,6 +54,7 @@ export const LogoImgWrap = styled.div`
 
   .logo-img {
     width: 5em;
+    border-radius: 60%;
   }
 `
 export const FooterTextWrap = styled.div`

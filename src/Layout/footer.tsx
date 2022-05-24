@@ -1,6 +1,7 @@
 import React from 'react'
 import { FooterContainer, FooterTextWrap, FooterWrap, LogoImgWrap } from './layout.style'
 import logo from '../assets/game_logo.jpeg'
+import { Link } from 'react-router-dom'
 
 interface IFooter {}
 
@@ -9,7 +10,9 @@ const Footer: React.FC<IFooter> = (props: IFooter) => {
     <FooterContainer>
       <FooterWrap>
         <LogoImgWrap>
-          <img className={'logo-img'} src={logo} alt="logo" />
+          <Link to="/">
+            <img className="logo-img" src={logo} alt="logo" />
+          </Link>
         </LogoImgWrap>
         <FooterTextWrap>
           <div>React-Game for Redux & MobX Study.</div>

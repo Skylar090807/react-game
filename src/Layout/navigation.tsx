@@ -14,10 +14,13 @@ const Navigation: React.FC<INavigation> = (props: INavigation) => {
         로또번호 추천 🎱
       </NavLink>
       <NavLink to="/word" className={({ isActive }) => (isActive ? 'selected' : '')}>
-        끝말잇기
+        끝말잇기 ☀️
       </NavLink>
       <NavLink to="/numericalbaseball" className={({ isActive }) => (isActive ? 'selected' : '')}>
-        숫자야구
+        숫자야구 ⚾️
+      </NavLink>
+      <NavLink to="/rockpaperscissors" className={({ isActive }) => (isActive ? 'selected' : '')}>
+        가위바위보 ✋🏻
       </NavLink>
     </NavigationContainer>
   )

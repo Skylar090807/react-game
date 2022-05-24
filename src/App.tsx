@@ -9,6 +9,7 @@ import Header from './Layout/header'
 import Footer from './Layout/footer'
 import WordGame from './pages/WordGame'
 import NumericalBaseball from './pages/NumericalBaseball'
+import RockPaperScissors from './pages/RockPaperScissors'
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
               <Route path="/lotto" element={<Lotto />} />
               <Route path="/word" element={<WordGame />} />
               <Route path="/numericalbaseball" element={<NumericalBaseball />} />
+              <Route path="/rockpaperscissors" element={<RockPaperScissors />} />
             </Routes>
           </Fragment>
         </Layout.Content>
