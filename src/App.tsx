@@ -10,6 +10,7 @@ import Footer from './Layout/footer'
 import WordGame from './pages/WordGame'
 import NumericalBaseball from './pages/NumericalBaseball'
 import RockPaperScissors from './pages/RockPaperScissors'
+import TicTacToe from './pages/Tic-Tac-Toe'
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
               <Route path="/word" element={<WordGame />} />
               <Route path="/numericalbaseball" element={<NumericalBaseball />} />
               <Route path="/rockpaperscissors" element={<RockPaperScissors />} />
+              <Route path="/tictactoe" element={<TicTacToe />} />
             </Routes>
           </Fragment>
         </Layout.Content>

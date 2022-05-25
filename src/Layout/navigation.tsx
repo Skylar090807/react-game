@@ -22,6 +22,9 @@ const Navigation: React.FC<INavigation> = (props: INavigation) => {
       <NavLink to="/rockpaperscissors" className={({ isActive }) => (isActive ? 'selected' : '')}>
         가위바위보 ✋🏻
       </NavLink>
+      <NavLink to="/tictactoe" className={({ isActive }) => (isActive ? 'selected' : '')}>
+        틱택토 🤹🏻
+      </NavLink>
     </NavigationContainer>
   )
 }
