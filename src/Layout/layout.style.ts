@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
+// header.tsx
 export const HeaderContainer = styled.div`
   width: 100%;
-  height: 73px;
+  height: 100px;
   background: #fff;
   display: flex;
   justify-content: start;
@@ -11,14 +12,15 @@ export const HeaderContainer = styled.div`
   border-bottom: 1px solid rgba(44, 44, 44, 0.233);
   // box-shadow: 0px 2px 3px rgba(44, 44, 44, 0.137);
   .logo {
-    width: 90px;
+    width: 7em;
   }
 `
 
+// navigation.tsx
 export const NavigationContainer = styled.div`
-  width: 60%;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 
   a {
@@ -30,6 +32,7 @@ export const NavigationContainer = styled.div`
     font-weight: 500;
     color: rgb(3, 105, 153);
     text-decoration: none;
+    transition: 0.5s;
 
     &.selected {
       font-size: 20px;
@@ -38,6 +41,8 @@ export const NavigationContainer = styled.div`
     }
   }
 `
+
+// footer.tsx
 export const FooterContainer = styled.div`
   background: rgba(81, 139, 255, 0.2);
   width: 100%;

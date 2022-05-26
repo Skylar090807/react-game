@@ -113,15 +113,19 @@ const TicTacToe = () => {
       return
     }
     let win = false
+    // 가로
     if (tableData[row][0] === turn && tableData[row][1] === turn && tableData[row][2] === turn) {
       win = true
     }
+    // 세로
     if (tableData[0][cell] === turn && tableData[1][cell] === turn && tableData[2][cell] === turn) {
       win = true
     }
+    // 왼쪽 위 대각선
     if (tableData[0][0] === turn && tableData[1][1] === turn && tableData[2][2] === turn) {
       win = true
     }
+    // 오른쪽 위 대각선
     if (tableData[0][2] === turn && tableData[1][1] === turn && tableData[2][0] === turn) {
       win = true
     }

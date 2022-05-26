@@ -11,6 +11,7 @@ import WordGame from './pages/WordGame'
 import NumericalBaseball from './pages/NumericalBaseball'
 import RockPaperScissors from './pages/RockPaperScissors'
 import TicTacToe from './pages/Tic-Tac-Toe'
+import Minesweeper from './pages/Minesweeper'
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
               <Route path="/numericalbaseball" element={<NumericalBaseball />} />
               <Route path="/rockpaperscissors" element={<RockPaperScissors />} />
               <Route path="/tictactoe" element={<TicTacToe />} />
+              <Route path="/minesweeper" element={<Minesweeper />} />
             </Routes>
           </Fragment>
         </Layout.Content>
