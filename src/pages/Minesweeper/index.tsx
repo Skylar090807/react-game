@@ -2,7 +2,6 @@ import * as React from 'react'
 import { useEffect, useReducer, createContext, useMemo, Dispatch } from 'react'
 import Form from './form'
 import Table from './table'
-
 import {
   ReducerActions,
   START_GAME,
@@ -15,7 +14,6 @@ import {
 } from './action'
 import { MinesweeperContainer, MinesweeperWrap, Timer } from './index.style'
 import { Title } from '../../styles/common.style'
-import { isNativeError } from 'util/types'
 
 export const CODE = {
   MINE: -7,
@@ -26,8 +24,9 @@ export const CODE = {
   FLAG_MINE: -5,
   CLICKED_MINE: -6,
   OPENED: 0, // 0 이상이면 다 opened
-} as const
+} as const //as const를 해주지 않으면 value가 number로 광범위하게 들어간다.
 
+// 반복해서 쓰이는 코드 type alias로 중복 제거.
 export type Codes = typeof CODE[keyof typeof CODE]
 interface Context {
   tableData: Codes[][]
@@ -51,6 +50,7 @@ interface ReducerState {
   timer: number
   result: string
   halted: boolean
+  // row * cell - mine 값이 openedCount 값과 같다면 승리한 것.
   openedCount: number
 }
 
@@ -63,21 +63,27 @@ const initialState: ReducerState = {
   },
   timer: 0,
   result: '',
-  halted: true,
+  halted: true, //halted:true면 중지 상태
   openedCount: 0,
 }
 
+// 지뢰를 심어주는 함수
 const plantMine = (row: number, cell: number, mine: number): Codes[][] => {
+  // row와 cell을 곱해 칸을 만든다. 예) row: 10, cell:10 이라면 100칸.
   const candidate = Array(row * cell)
     .fill(undefined)
     .map((arr, i) => {
       return i
     })
+
+  //지뢰의 갯수 만큼 랜덤한 숫자를 뽑아 shuffle에 담아준다. 지뢰가 담길 칸의 번호가 랜덤하게 생성된다.
   const shuffle = []
   while (candidate.length > row * cell - mine) {
     const chosen = candidate.splice(Math.floor(Math.random() * candidate.length), 1)[0]
     shuffle.push(chosen)
   }
+
+  // 이차원 배열로 테이블 데이터를 만들어준다. 정상적인 칸.
   const data: Codes[][] = []
   for (let i = 0; i < row; i++) {
     const rowData: Codes[] = []
@@ -87,6 +93,7 @@ const plantMine = (row: number, cell: number, mine: number): Codes[][] => {
     }
   }
 
+  // 지뢰 담길 칸을 뽑아온 shuffle을 이용해 지뢰를 심어준다.
   for (let k = 0; k < shuffle.length; k++) {
     const ver = Math.floor(shuffle[k] / cell)
     const hor = shuffle[k] % cell
@@ -97,6 +104,7 @@ const plantMine = (row: number, cell: number, mine: number): Codes[][] => {
   return data
 }
 
+// reducer 함수 구현
 const reducer = (state = initialState, action: ReducerActions): ReducerState => {
   switch (action.type) {
     case START_GAME:
@@ -145,6 +153,7 @@ const reducer = (state = initialState, action: ReducerActions): ReducerState => 
           around = around.concat([tableData[row + 1][cell - 1], tableData[row + 1][cell], tableData[row + 1][cell + 1]])
         }
         const count = around.filter(function (v) {
+          // type을 엄격하게 선언하고 나면 includes를 사용할 때 면밀하게 검사하기 때문에 as를 사용하여 type을 맞춰주는 것이 편리하다.
           return ([CODE.MINE, CODE.FLAG_MINE, CODE.QUESTION_MINE] as Codes[]).includes(v)
         }).length as Codes
         if (count === 0) {
@@ -257,6 +266,9 @@ const MineSearch = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const { tableData, halted, timer, result } = state
 
+  // Context API를 사용할 때 Provider로 자식 컴포넌트에게 모두 value를 전달하므로 성능에 좋지 않다. 때문에 useMemo를 사용하여 캐싱해주는 것이 좋다.
+  // useMemo deps에 tableData와 halted를 dependency로 전달하면, tableData와 halted 값이 변경 될 때만 렌더된다.
+  // reducer 함수 dispatch는 변경되는 값 없이 항상 똑같이 유지되므로 dependency로 전달 할 필요 없다.
   const value = useMemo(() => ({ tableData, halted, dispatch }), [tableData, halted])
 
   useEffect(() => {

@@ -7,6 +7,7 @@ interface ITable {}
 
 const Table: React.FC<ITable> = (props: ITable) => {
   const { tableData } = useContext(TableContext)
+
   return (
     <TableWrap>
       <table>

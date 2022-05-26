@@ -2,7 +2,6 @@ import React, { Fragment, memo, useCallback, useContext } from 'react'
 import { TableContext, CODE, Codes } from './index'
 import { openCell, clickMine, questionCell, flagMine, normalizeCell } from './action'
 import { TdWrap } from './index.style'
-import { table } from 'console'
 
 const getTdStyle = (code: Codes) => {
   switch (code) {

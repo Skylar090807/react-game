@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { TableContext } from '.'
+import { TableContext } from './index'
 import { TrWrap } from './index.style'
 import Td from './td'
 
@@ -8,6 +8,7 @@ interface ITr {
 }
 
 const Tr: React.FC<ITr> = (props: ITr) => {
+  // Context API를 사용하면 하위 자손에게 프롭 드릴링 없이 바로 데이터를 전달할 수 있다.
   const { tableData } = useContext(TableContext)
 
   return (

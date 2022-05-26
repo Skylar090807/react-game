@@ -1,3 +1,4 @@
+// action type 이름들
 export const START_GAME = 'START_GAME' as const
 export const OPEN_CELL = 'OPEN_CELL' as const
 export const CLICK_MINE = 'CLICK_MINE' as const
@@ -6,6 +7,7 @@ export const QUESTION_CELL = 'QUESTION_CELL' as const
 export const NORMALIZE_CELL = 'NORMALIZE_CELL' as const
 export const INCREMENT_TIMER = 'INCREMENT_TIMER' as const
 
+// reducer에서 사용할 action을 interface로 정의
 interface StartGameAction {
   type: typeof START_GAME
   row: number
@@ -13,8 +15,10 @@ interface StartGameAction {
   mine: number
 }
 
+// action을 return하는 action creator. 동적으로 action을 생성하는 함수
 export const startGame = (row: number, cell: number, mine: number): StartGameAction => {
   return {
+    // action
     type: START_GAME,
     row,
     cell,
